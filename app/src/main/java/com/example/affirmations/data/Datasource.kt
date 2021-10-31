@@ -23,9 +23,9 @@ class Datasource {
      *  Inside the angle brackets specify the type of the list items as Affirmation
      *  If necessary (Auto Import is not on in settings),
      *  import com.example.affirmations.model.Affirmation
-     *  Inside the parantheses, create an Affirmation, passing in R.string.affirmation1
+     *  Inside the parentheses, create an Affirmation, passing in R.string.affirmation1
      *  as the resource ID.
-     *  Add the remaining affirmations, seperated by a comma , .
+     *  Add the remaining affirmations, separated by a comma , .
      */
     fun loadAffirmations(): List<Affirmation>{
         return listOf<Affirmation>(
