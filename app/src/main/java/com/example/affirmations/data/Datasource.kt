@@ -5,6 +5,8 @@
  * You should hide it away in a seperate Datasource class that prepares the data.
  */
 /**
+ * Since preparing data is a separate concern in regards to the app functionality, we can hide it
+ * away in a separate data source class in a separate data package.
  * Create a package in the package that holds MainActivity, name it data
  *  Append the parent package name with .data
  *  In the new package create a class called Datasource, this creates a Datasource.kt file
