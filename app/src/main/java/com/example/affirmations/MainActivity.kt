@@ -1,10 +1,10 @@
 package com.example.affirmations
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import com.example.affirmations.adapter.ItemAdapter
 import com.example.affirmations.data.Datasource
-import com.example.affirmations.model.Affirmation
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,5 +23,32 @@ class MainActivity : AppCompatActivity() {
         val textView: TextView = findViewById(R.id.textview)
         textView.text = Datasource().loadAffirmations().size.toString() /* Returns 10 */
          */
+        /* 7. After creating the Recycler View in ItemAdapter, you need to tell RecyclerView to use
+           adapter. You need to use your Datasource and ItemAdapter classes to create and display
+           items in the RecyclerView.
+           * In the onCreate() method, under setContentView(R.layout.activity_main), create an
+             instance of Datasource, and call the loadAffirmations() method on it. Store the
+             returned list of affirmations in a val named myDataset.
+           * Create a variable called recyclerView and use findViewById() to find a reference to the
+             RecyclerView within the layout.
+           * To tell the recyclerView to use the ItemAdapter class you created,
+             create a new ItemAdapter instance. ItemAdapter expects two parameters:
+             the context literally (this) of this activity, and the affirmations in myDataset.
+             Assign the ItemAdapter object to the adapter property of the recyclerView
+           * Since the layout size of your RecyclerView s fixed in teh activity layout, you can set
+             the setHasFixedSize parameter of the RecyclerView to True. This setting is only to
+             improve performance. Use this setting if you know that changes in content do not change
+             the layout size of the RecyclerView.
+         */
+
+        // Initialize data.
+        val myDataset = Datasource().loadAffirmations()
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = ItemAdapter(this, myDataset)
+
+        // Use this setting to improve performance if you know that changes
+        // in content do not change this layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true)
     }
 }
