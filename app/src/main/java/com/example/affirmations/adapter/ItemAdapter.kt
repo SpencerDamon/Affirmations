@@ -1,6 +1,7 @@
 package com.example.affirmations.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -10,12 +11,12 @@ import com.example.affirmations.model.Affirmation
 
 /*
    1. CREATE AN ItemAdapter CLASS
-   Add a parameter to te constructor of ItemAdapter, so you can pass the list of affirmations
+   Add a parameter to the constructor of ItemAdapter, so you can pass the list of affirmations
    to the adapter.
 
    Add a parameter to the ItemAdapter constructor that is a val called dataset of type
-   List<Affirmation>. Import Affirmation, if necessary.
-
+   List<Affirmation>. Import Affirmation, if necessary,
+   import com.example.affirmations.model.Affirmation  .
    dataset will only be used in this class so make it private.
 
    The ItemAdapter needs information on how to resolve string resources. This and other information
@@ -33,6 +34,9 @@ import com.example.affirmations.model.Affirmation
    stubs with the correct parameters for the three methods after the ItemViewHolder class.
    Error is gone.  Now implement those methods. See 4.
 */
+/**
+ * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
+ */
 class ItemAdapter(
     private val context: Context,
     private val dataset: List<Affirmation>
@@ -51,12 +55,16 @@ class ItemAdapter(
        but helpful to other developers to understand your program.
 
        Add a private value view of type View as a parameter to the ItemViewHolder class constructor.
-       Make ItemViewHolder a subclass of RecyclerView.ViewHolder and pass the view parameter into
+       Make ItemViewHolder a subclass of RecyclerView. ViewHolder and pass the view parameter into
        the superclass constructor.
        Inside ItemViewHolder, define a val property textView that is of type TextView.
        Assign the view with the ID item_title that you defined in list_item.xml
      */
 
+    // Provide a reference to the views for each data item
+    // Complex data items may need more than one view per item, and you provide access to
+    // all the views for the data item in a view holder.
+    // Each data item is just an Affirmation object.
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
     }
@@ -65,14 +73,64 @@ class ItemAdapter(
        The onCreateViewHolder() method is called by the layout manager to create new view holders
        for the RecyclerView (when there is no existing view holders that can be reused).
        Remember that a view holder represents a single list item view.
-       The onCreateViewHolder() method takes tewo paramters and returns a new veiwHolder
+       The onCreateViewHolder() method takes two parameters and returns a new viewHolder
+       * parent parameter - which is the view group that the new list item view will be attached to
+         as a child.  Te parent is the RecyclerView.
+       * viewType parameter, which becomes important when there are multiple item view types in the
+         same RecyclerView. If you have different list item layouts displayed within the
+         RecyclerView, there are different item view types. You can only recycle views with the same
+         item view types. In this case, there is only one list item layout and one item view type,
+         so there is no need to worry about this parameter in this app.
+       In the onCreateViewHolder() method, obtain an instance of LayoutInflater from the provided
+       context (context of the parent). The layout inflater knows how to inflate an xml layout into
+       a hierarchy of view objects.
+       Once you have a LayoutInflater object instance, add a dot followed by another method call to
+       inflate the actual list item view.
+       Pass in the xml layout resource ID R.layout.list_item and the parent view group.
+       The third boolean argument is attachToRoot.  This argument needs to be false, because the
+       RecyclerView adds this item to the view hierarchy for you when it's time.
+       Now adapterLayout can hold a reference to the list item view (from which we can later find
+       child views like the TextView).
+       In onCreateViewHolder(), return a new ItemViewHolder instance where the root view is
+       adapterLayout.
+     */
+    /**
+     * Create new views (invoked by the layout manager)
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        TODO("Not yet implemented")
-    }
+        // Create a new view
+        val adapterLayout = LayoutInflater.from(parent.context)
+            .inflate(R.layout.list_item, parent, false)
 
+        return ItemViewHolder(adapterLayout)
+    }
+    /* 6. IMPLEMENT onBindViewHolder()
+          This method is called on by the layout manager in order to replace the contents of a list
+          item view.
+          It has two parameters, an ItemViewHolder previously created by onCreateViewHolder() method
+          and an Int that represents the current item position in the list.
+          In this method, find the right Affirmation object from the data set based on position.
+          * Inside onBindViewHolder(), create a val item and get the item at the given position in
+            the data set.
+          Update all the views referenced by the view holder to reflect the correct data for this
+          item. In this case there is only one view: the TextView within ItemViewHolder.
+          Set the text of the TextView to display the Affirmation string for this item.
+          * With an Affirmation object instance you can find the corresponding string resource ID
+            by calling item.stringResourceId . However , this is an integer and you need to find the
+            mapping to the actual string value.
+            That means you can call context.resources.getString() and pass in a string resource ID.
+            The resulting string can be set as the text of the textView in the holder ItemViewHolder
+            In short, this line of code updates the view to show the affirmation string.
+            holder.textView.text = context.resources.getString(item.stringResourceId)
+
+    */
+
+    /**
+     * Replace the contents of a view (invoked by the layout manager)
+     */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = dataset[position]
+        holder.textView.text = context.resources.getString(item.stringResourceId)
     }
 
     /* 4. IMPLEMENT getItemCount()
@@ -82,5 +140,9 @@ class ItemAdapter(
        Replace getItemCount() with: override fun getItemCount() = dataset.size
        Which is more concise than: override fun getItemCount(): Int {return dataset.size}
      */
+    /**
+     * Return the size of your dataset (invoked by the layout manager)
+     */
     override fun getItemCount() = dataset.size
+    /* Now go to MainActivity, and modify  to use the recycler view.*/
 }
