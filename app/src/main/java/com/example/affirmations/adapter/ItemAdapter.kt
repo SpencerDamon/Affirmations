@@ -10,6 +10,15 @@ import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
 
 /*
+   Overview: IMPLEMENT THE ADAPTER
+   - Create a new class for the adapter, for example ItemAdapter
+   - Create a custom ViewHolder class that represents a single list item view. Extend
+     from RecyclerView.ViewHolder class.
+   - Modify the ItemAdapter class to extend from the RecyclerView.Adapter class with the
+     custom ViewHolder class.
+   - Implement these methods within the adapter: getItemsCount(), onCreateViewHolder(),
+     and onBindViewHolder().
+
    1. CREATE AN ItemAdapter CLASS
    Add a parameter to the constructor of ItemAdapter, so you can pass the list of affirmations
    to the adapter.
