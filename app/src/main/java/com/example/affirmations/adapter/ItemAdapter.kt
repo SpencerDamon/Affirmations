@@ -44,7 +44,7 @@ import com.example.affirmations.model.Affirmation
    Error is gone.  Now implement those methods. See 4.
 */
 /**
- * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
+ * Adapter for the [RecyclerView] in MainActivity. Displays [Affirmation] data object.
  */
 class ItemAdapter(
     private val context: Context,
