@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.R
@@ -70,12 +71,23 @@ class ItemAdapter(
        Assign the view with the ID item_title that you defined in list_item.xml
      */
 
+    /*
+       Update the itemAdapter to set the image.
+         Add a reference to ImageView in ItemViewHolder:
+           Below the initialization of the TeztView property add a val called imageView.
+           Use findViewById to find the reference to ImageView with id item_image and,
+           assign it to the imageView property.
+           now go to the bindOnView function below.
+     */
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and you provide access to
     // all the views for the data item in a view holder.
     // Each data item is just an Affirmation object.
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
+        val imageView: ImageView = view.findViewById(R.id.item_image)
+
     }
 
     /* 5. IMPLEMENT onCreateViewHolder()
@@ -133,6 +145,12 @@ class ItemAdapter(
             holder.textView.text = context.resources.getString(item.stringResourceId)
 
     */
+    /*
+        Finish updating the itemAdapter to set the image:
+            Set the affirmations item's imageResourceId onto the ViewImage of the list item view.
+            Now run the app and scroll through the list of affirmations.
+            The affirmations now display under the images.
+     */
 
     /**
      * Replace the contents of a view (invoked by the layout manager)
@@ -140,6 +158,7 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 
     /* 4. IMPLEMENT getItemCount()
