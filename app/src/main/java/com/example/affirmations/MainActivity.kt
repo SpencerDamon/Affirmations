@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
              improve performance. Use this setting if you know that changes in content do not change
              the layout size of the RecyclerView.
          */
+        /*
+            To display additional content in a RecyclerView, modify the underlying data model class
+            and data source. Then update the list item layout and adapter to set that data onto
+            the views.
+         */
 
         // Initialize data.
         val myDataset = Datasource().loadAffirmations()
