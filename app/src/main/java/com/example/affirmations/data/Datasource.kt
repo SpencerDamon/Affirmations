@@ -16,6 +16,9 @@ package com.example.affirmations.data
 import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
 
+/**
+ * [Datasource] generates a list of [Affirmation]
+ */
 class Datasource {
     /** 2. Create a function called loadAffirmations, which needs to return a list of Affirmations.
      *     You do this by creating a list, and populating it with an Affirmation instance for each
