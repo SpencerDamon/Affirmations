@@ -11,7 +11,7 @@ import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
 
 /*
-   Overview: IMPLEMENT THE ADAPTER
+   13. Overview: IMPLEMENT THE ADAPTER
    - Create a new class for the adapter, for example ItemAdapter
    - Create a custom ViewHolder class that represents a single list item view. Extend
      from RecyclerView.ViewHolder class.
@@ -20,21 +20,22 @@ import com.example.affirmations.model.Affirmation
    - Implement these methods within the adapter: getItemsCount(), onCreateViewHolder(),
      and onBindViewHolder().
 
-   1. CREATE AN ItemAdapter CLASS
+   CREATE AN ItemAdapter CLASS
    Add a parameter to the constructor of ItemAdapter, so you can pass the list of affirmations
    to the adapter.
 
-   Add a parameter to the ItemAdapter constructor that is a val called dataset of type
-   List<Affirmation>. Import Affirmation, if necessary,
-   import com.example.affirmations.model.Affirmation  .
-   dataset will only be used in this class so make it private.
+       Add a parameter to the ItemAdapter constructor that is a val called dataset of type
+       List<Affirmation>. Import Affirmation, if necessary,
+       import com.example.affirmations.model.Affirmation  .
+       dataset will only be used in this class so make it private.
 
    The ItemAdapter needs information on how to resolve string resources. This and other information
    is stored in a Context object instance that you can pass into an ItemAdapter instance.
-   Add a parameter to the ItemAdapter constructor that is a val called context of type Context.
-   Position it as the first parameter in the constructor.
+       Add a parameter to the ItemAdapter constructor that is a val called context of type Context.
+       Position it as the first parameter in the constructor.
+   GOTO class ItemAdapter
 
-   3. OVERRIDE ADAPTER METHODS
+   15. OVERRIDE ADAPTER METHODS
    Add the code to extend your ItemAdapter from the abstract class RecyclerView.Adapter. Specify
    ItemAdapter.ItemViewHolder as the view holder type in angle brackets. An error is created because
    you need to implement some abstract methods from RecyclerViewAdapter.
@@ -52,7 +53,7 @@ class ItemAdapter(
     private val dataset: List<Affirmation>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 
-    /* 2. CREATE A ViewHolder
+    /* 14. CREATE A ViewHolder
        RecyclerView doesn't interact directly with item views, but deals with ViewHolders instead
        A ViewHolder represents a single list item view in RecyclerView, and can be reused when
        possible.  A ViewHolder instance holds references to the individual views within a list
@@ -90,7 +91,7 @@ class ItemAdapter(
 
     }
 
-    /* 5. IMPLEMENT onCreateViewHolder()
+    /* 17. IMPLEMENT onCreateViewHolder()
        The onCreateViewHolder() method is called by the layout manager to create new view holders
        for the RecyclerView (when there is no existing view holders that can be reused).
        Remember that a view holder represents a single list item view.
@@ -125,7 +126,7 @@ class ItemAdapter(
 
         return ItemViewHolder(adapterLayout)
     }
-    /* 6. IMPLEMENT onBindViewHolder()
+    /* 18. IMPLEMENT onBindViewHolder()
           This method is called on by the layout manager in order to replace the contents of a list
           item view.
           It has two parameters, an ItemViewHolder previously created by onCreateViewHolder() method
@@ -142,7 +143,15 @@ class ItemAdapter(
             That means you can call context.resources.getString() and pass in a string resource ID.
             The resulting string can be set as the text of the textView in the holder ItemViewHolder
             In short, this line of code updates the view to show the affirmation string.
-            holder.textView.text = context.resources.getString(item.stringResourceId)
+                holder.textView.text = context.resources.getString(item.stringResourceId)
+            Adapter code is finished
+            Now that you've implemented the ItemAdapter, you need to tell the RecyclerView to use
+            this adapter.
+            Modify the MainActivity to use a RecyclerView
+            To finish, you need to use your Datasource and ItemAdapter classes to create and display
+            items in the RecyclerView. You do this in MainActivity.
+                Open MainActivity.kt.
+            GOTO MainActivity.kt
 
     */
     /*
@@ -161,7 +170,7 @@ class ItemAdapter(
         holder.imageView.setImageResource(item.imageResourceId)
     }
 
-    /* 4. IMPLEMENT getItemCount()
+    /* 16. IMPLEMENT getItemCount()
        The getItemCount() method needs to return the size of your dataset. Your app's data is in the
        dataset property that you are passing into the ItemAdapter constructor, and you can get its
        size with size.

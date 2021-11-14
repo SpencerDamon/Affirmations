@@ -5,11 +5,15 @@
  * You should hide it away in a seperate Datasource class that prepares the data.
  */
 /**
- * Since preparing data is a separate concern in regards to the app functionality, we can hide it
- * away in a separate data source class in a separate data package.
- * 1. Create a package in the package that holds MainActivity, name it data
- *    Append the parent package name with .data
- *    In the new package create a class called Datasource, this creates a Datasource.kt file
+6. Create a class to be a data source
+Data displayed in your app may come from different sources (e.g. within your app project or from an
+external source that requires connecting to the internet to download data). As a result, data may
+not be in the exact format that you need. The rest of the app should not concern itself with where
+the data originates from or in what format it is originally. You can and should hide away this data
+preparation in a separate Datasource class that prepares the data for the app.
+
+Enter Datasource as the class name.
+Inside the Datasource class, create a function called loadAffirmations().
  */
 package com.example.affirmations.data
 
@@ -20,7 +24,7 @@ import com.example.affirmations.model.Affirmation
  * [Datasource] generates a list of [Affirmation]
  */
 class Datasource {
-    /** 2. Create a function called loadAffirmations, which needs to return a list of Affirmations.
+    /** 7. Create a function called loadAffirmations, which needs to return a list of Affirmations.
      *     You do this by creating a list, and populating it with an Affirmation instance for each
      *     resource string.
      *     Declare List<Affirmation> as the return type
@@ -48,3 +52,9 @@ class Datasource {
         )
     }
 }
+/** OPTIONAL 8. Display the size of the Affirmations list in a TextView
+    To verify that you can create a list of affirmations, you can call loadAffirmations() and display
+    the size of the returned list of affirmations in the TextView that comes with your Empty Activity app template.
+
+    GOTO layouts/activity_main.xml
+ */

@@ -27,3 +27,19 @@
 
 </com.google.android.material.card.MaterialCardView>
 
+<!--
+    12. Add a TextView with id item_title.
+        Add wrap_content for the layout_width and layout_height, as shown in the code below.
+    Notice that you don't need a ViewGroup around your layout, because this list item layout will
+    later be inflated and added as a child to the parent RecyclerView.
+    Alternatively, you could have used File > New > Layout Resource File, with File name
+    list_item.xml and TextView as the Root element. Then update the generated code to match the
+    code above.
+    Create an ItemAdapter class
+        In Android Studio in the Project pane, right-click app > java > com.example.affirmations
+        and select New > Package.
+        Enter adapter as the last part of the package name.
+        Right-click on the adapter package and select New > Kotlin File/Class.
+        Enter ItemAdapter as the class name, finish, and the ItemAdapter.kt file opens.
+    GOTO ItemAdapter.kt
+-->

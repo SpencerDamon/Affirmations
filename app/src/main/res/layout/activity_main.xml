@@ -13,3 +13,81 @@
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"/>
 </FrameLayout>
+
+<!-- 9. In this task, you will set up a RecyclerView to display the list of Affirmations.
+    There are a number of pieces involved in creating and using a RecyclerView. You can think of
+    them as a division of labor. The diagram below shows an overview, and you will learn more about
+    each piece as you implement it.
+        item - One data item of the list to display. Represents one Affirmation object in your app.
+        Adapter - Takes data and prepares it for RecyclerView to display.
+        ViewHolders - A pool of views for RecyclerView to use and reuse to display affirmations.
+        RecyclerView - Views on screen
+    Add a RecyclerView to the layout
+    The Affirmations app consists of a single activity named MainActivity, and its layout file is
+    called activity_main.xml. First, you need to add the RecyclerView to the layout of the
+    MainActivity.
+        Open activity_main.xml (app > res > layout > activity_main.xml)
+        If you are not already using it, switch to Split view
+        Delete the TextView.
+    The current layout uses ConstraintLayout. ConstraintLayout is ideal and flexible when you want
+    to position multiple child views in a layout. Since your layout only has a single child view,
+    RecyclerView, you can switch to a simpler ViewGroup called FrameLayout that should be used for
+    holding a single child view.
+        In the XML, replace ConstraintLayout with FrameLayout
+        Switch to Design view.
+        In the Palette, select Containers, and find the RecyclerView.
+        Drag a RecyclerView into the layout.
+        If it appears, read the Add Project Dependency popup and click OK.
+        (If the popup doesn't appear, no action is needed.)
+        Wait for Android Studio to finish and the RecyclerView to appear in your layout.
+        If necessary, change the layout_width and layout_height attributes of the RecyclerView to
+        match_parent so that the RecyclerView can fill the whole screen.
+        Set the resource ID of the RecyclerView to recycler_view.
+
+    10. RecyclerView supports displaying items in different ways, such as a linear list or a grid.
+    Arranging the items is handled by a LayoutManager. The Android framework provides layout
+    managers for basic item layouts. The Affirmations app displays items as a vertical list,
+    so you can use the LinearLayoutManager.
+        Switch back to Code view. In the XML code, inside the RecyclerView element, add
+        LinearLayoutManager as the layout manager attribute of the RecyclerView,
+    To be able to scroll through a vertical list of items that is longer than the screen, you need
+    to add a vertical scrollbar.
+        Inside RecyclerView, add an android:scrollbars attribute set to vertical.
+    Run your app.
+The project should compile and run without any issues.
+However, only a white background is displayed in your app because you are missing a crucial piece of
+code. Right now, you have the source of data and the RecyclerView added to your layout, but the
+RecyclerView has no information on how to display the Affirmation objects.
+
+11. Implement an Adapter for the RecyclerView
+Your app needs a way to take the data from Datasource, and format it so that each Affirmation can be
+displayed as an item in the RecyclerView.
+Adapter is a design pattern that adapts the data into something that can be used by RecyclerView.
+In this case, you need an adapter that takes an Affirmation instance from the list returned by
+loadAffirmations(), and turns it into a list item view, so that it can be displayed in the
+RecyclerView.
+When you run the app, RecyclerView uses the adapter to figure out how to display your data on
+screen. RecyclerView asks the adapter to create a new list item view for the first data item in your
+list. Once it has the view, it asks the adapter to provide the data to draw the item. This process
+repeats until the RecyclerView doesn't need any more views to fill the screen. If only 3 list item
+views fit on the screen at once, the RecyclerView only asks the adapter to prepare those 3 list item
+views (instead of all 10 list item views).
+
+In this step, you'll build an adapter which will adapt an Affirmation object instance so that it can
+be displayed in the RecyclerView.
+
+Create the Adapter
+An adapter has multiple parts, and you'll be writing quite a bit of code that's more complex than
+what you've done in this course so far. It's okay if you don't fully understand the details at
+first. Once you have completed this whole app with a RecyclerView, you'll be able to better
+understand how all the parts fit together. You'll also be able to reuse this code as a base for
+future apps that you create with a RecyclerView.
+
+Create a layout for items
+Each item in the RecyclerView has its own layout, which you define in a separate layout file.
+Since you are only going to display a string, you can use a TextView for your item layout.
+
+    In res > layout, create a new empty File called list_item.xml.
+    Open list_item.xml in Code view.
+GOTO list-item.xml
+-->

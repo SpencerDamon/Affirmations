@@ -11,3 +11,28 @@
     <string name="affirmation9">Things will unfold at precisely the right time.</string>
     <string name="affirmation10">I will be present in all the moments that this day brings.</string>
 </resources>
+    <!-- 1. In strings.xml, add the following affirmations as individual string resources.
+    Name them affirmation1, affirmation2, and so on
+    Now that you have added string resources, you can reference them in your code as
+    R.string.affirmation1 or R.string.affirmation2.-->
+
+    <!-- 2. Create a package
+    In Android Studio, in the Project pane, right-click app > java > com.example.affirmations
+    and select New > Package.
+    In the New Package popup, notice the suggested package name prefix. The suggested first part
+    of the package name is the name of the package you right-clicked. While package names do not
+    create a hierarchy of packages, reusing parts of the name is used to indicate a relationship
+    and organization of the content!
+    In the popup, append model to the end of the suggested package name. Developers often use
+    model as the package name for classes that model (or represent) the data.
+    Press Enter. This creates a new package under the com.example.affirmations (root) package.
+    This new package will contain any data-related classes defined in your app.
+    -->
+    <!-- 3. Create the Affirmation data class
+    In this task, you'll create a class called Affirmation. An object instance of Affirmation
+    represents one affirmation and contains the resource ID of the string with the affirmation.
+    Right-click on the com.example.affirmations.model package and select New > Kotlin File/Class.
+    In the popup, select Class and enter Affirmation as the name of the class. This creates a new
+    file called Affirmation.kt in the model package.
+    Open Affirmation.kt
+    -->
