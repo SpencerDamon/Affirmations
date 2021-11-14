@@ -11,3 +11,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
+
+<!-- 28. Change the app theme colors
+     The default app theme color may not be as calming as some other choices you could make. In this
+     task, you will change the app theme color to blue. You can then change it again using your own
+     ideas!
+     You can find pre-defined shades of blue from the Material Design color palette from
+     https://material.io/resources/color/#!/?view.left=0&view.right=0
+
+     you will be using the following colors from the Material Design palette:
+     blue_200: #FF90CAF9
+     blue_500: #FF2196F3
+     blue_700: #FF1976D2
+
+     Add color resources
+     Define colors used within your app in a centralized place: the colors.xml file.
+     Add new color resources to the file for the blue colors defined above:
+     GOTO themes.zml
+-->

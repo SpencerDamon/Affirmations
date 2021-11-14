@@ -36,6 +36,18 @@ class Datasource {
      *     as the resource ID.
      *     Add the remaining affirmations, separated by a comma , .
      */
+    /**
+     *  22. Initialize list of affirmations with images
+     *  Now that you've changed the constructor of the Affirmation class, you need to update the
+     *  Datasource class. Pass in an image resource ID to each Affirmation object that is
+     *  initialized.
+     *  You should see an error for each instantiation of Affirmation.
+     *      For each Affirmation, add the resource ID of an image as an argument,
+     *      such as R.drawable.image1.
+     *
+     *      Open res > layout > list_item.xml.
+     *      GOTO list_item.xml
+     */
     fun loadAffirmations(): List<Affirmation>{
         return listOf<Affirmation>(
             Affirmation(R.string.affirmation1, R.drawable.image1),

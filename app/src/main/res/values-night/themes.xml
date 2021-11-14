@@ -14,3 +14,49 @@
         <!-- Customize your theme here. -->
     </style>
 </resources>
+
+<!-- 30. It's good to choose more desaturated colors for the dark theme of the app.
+            Open the dark theme themes.xml file (themes > themes.xml (night)).
+            Add or change the colorPrimary and colorPrimaryVariant theme attributes as follows:
+            <item name="colorPrimary">@color/blue_200</item
+            <item name="colorPrimaryVariant">@color/blue_500</item
+            Run your app.
+            In the Settings of your device, turn on the Dark Theme.
+     Note: app bar color**.** You may be wondering why your specified primary color for the dark
+     theme is not showing in the app bar. The dark app bar is by design. In dark theme, the app bar
+     and other large areas are by default shown with a dark background (colorSurface) instead of the
+     primary color. This is because Material dark theme recommends less use of bright colors on
+     large surfaces. Buttons or other small accents will show the defined primary color.
+         At this point, you can also remove unused colors in your colors.xml file (for example, the
+         purple color resources used in the default app theme).
+
+
+     31. Change the app icon
+     As a final step, you'll update the app icon.
+         Download the app icon files ic_launcher_foreground.xml and ic_launcher_background.xml.
+         If your browser shows the file instead of downloading it, select File > Save Page As... to
+         save it to your computer.
+         Within Android Studio, delete two files: drawable/ic_launcher_background.xml and
+         drawable-v24/ic_launcher_foreground.xml files since those are for the previous app icon.
+         You can uncheck the box Safe delete (with usage search).
+         Then right click on the res > drawable folder and select New > Image Asset.
+         In the Configure Image Asset window make sure Foreground layer is selected.
+         Below that, find the Path label.
+         Click the folder icon inside the Path text box.
+         Find and open the ic_launcher_foreground.xml file that you downloaded on your computer.
+         Switch to the Background Layer tab.
+         Click the Browse icon inside the Path text box.
+         Find and open the ic_launcher_background.xml file on your computer. No other changes are
+         necessary.
+         Click Next.
+         In the Confirm Icon Path dialog, click Finish. It's OK to overwrite the existing icons.
+         For best practices, you can move the new vector drawables ic_launcher_foreground.xml
+         and ic_launcher_background.xml into a new resource directory called drawable-anydpi-v26.
+     Adaptive icons were introduced in API 26, so these resources will only be used on devices
+         running API 26 and above (for any dpi).
+         Delete the drawable-v24 directory if there's nothing left there.
+         Run your app and notice the beautiful new app icon in the app drawer!
+         As a last step, don't forget to reformat the Kotlin and XML files in the project so your
+         code is cleaner and follows style guidelines.
+         Congratulations! You created an inspiring Affirmations app.
+-->

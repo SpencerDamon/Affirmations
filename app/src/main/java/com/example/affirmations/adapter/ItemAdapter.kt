@@ -73,9 +73,9 @@ class ItemAdapter(
      */
 
     /*
-       Update the itemAdapter to set the image.
+       24. Update the itemAdapter to set the image.
          Add a reference to ImageView in ItemViewHolder:
-           Below the initialization of the TeztView property add a val called imageView.
+           Below the initialization of the TextView property add a val called imageView.
            Use findViewById to find the reference to ImageView with id item_image and,
            assign it to the imageView property.
            now go to the bindOnView function below.
@@ -155,10 +155,13 @@ class ItemAdapter(
 
     */
     /*
-        Finish updating the itemAdapter to set the image:
+        25. Finish updating the itemAdapter to set the image:
             Set the affirmations item's imageResourceId onto the ViewImage of the list item view.
             Now run the app and scroll through the list of affirmations.
             The affirmations now display under the images.
+            The app looks much prettier with images! Yet you can still improve the app UI. In the
+            next section you will make small adjustments to the app to improve the UI.
+        GOTO list_item.zml
      */
 
     /**

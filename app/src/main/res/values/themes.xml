@@ -14,3 +14,13 @@
         <!-- Customize your theme here. -->
     </style>
 </resources>
+
+<!-- 29. Change the theme colors
+     Now that you have new color resources, you can use them in your theme.
+         Find the Primary brand color  section.
+         Add or change colorPrimary to use @color/blue_500.
+         Add or change colorPrimaryVariant to use @color/blue_700.
+         <item name="colorPrimary">@color/blue_500</item>
+         <item name="colorPrimaryVariant">@color/blue_700</item>
+         Run the app.
+         You should see the app bar color is changed to blue.
